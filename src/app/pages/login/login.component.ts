@@ -12,5 +12,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.isPasswordHide = false;
+    console.log('loginPage');
   }
 }
