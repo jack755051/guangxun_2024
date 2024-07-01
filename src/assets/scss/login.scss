@@ -1,0 +1,48 @@
+.login-page-shell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .login-form-shell {
+    width: 50vw;
+    height: 70vh;
+    background-color: $primary-background-color;
+    display: flex;
+    flex-direction: column;
+
+    > .login-form-type-option {
+      width: 100%;
+      min-height: calc(($login-page-heigth) / 3 * 2);
+      line-height: calc(($login-page-heigth) / 3 * 2);
+      //   background-color: aqua;
+      display: flex;
+      justify-content: center;
+
+      > ul {
+        width: 100%;
+        min-height: calc(($login-page-heigth) / 3 * 2);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+
+        > li {
+          width: 20%;
+          list-style: none;
+          background-color: red;
+          border-radius: 1em 1em 0em 0em;
+
+          > .login-type-button {
+          }
+        }
+      }
+    }
+
+    > .page-element {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

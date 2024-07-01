@@ -1,16 +1,43 @@
 <div class="login-page-shell">
   <div class="login-form-shell">
-    <form>
-      <!-- account -->
-      <mat-form-field appearance="outline">
-        <mat-label>請輸入帳號</mat-label>
-        <input type="text" matInput placeholder="Placeholder" />
-      </mat-form-field>
-      <!-- password -->
-      <mat-form-field appearance="outline">
-        <label>請輸入您的密碼</label>
-        <input matInput />
-      </mat-form-field>
-    </form>
+    <div class="login-form-type-option">
+      <ul>
+        <li>
+          <button class="custom-button login-type-button">Sign in</button>
+        </li>
+        <li>
+          <button class="custom-button login-type-button">Sign up</button>
+        </li>
+        <li>
+          <button class="custom-button login-type-button">Forget</button>
+        </li>
+      </ul>
+    </div>
+    <div class="login-form-type">
+      <form>
+        <!-- account -->
+        <div class="page-element">
+          <span>帳號：</span>
+          <mat-form-field appearance="outline">
+            <mat-label>請輸入帳號</mat-label>
+            <input type="text" matInput placeholder="account" />
+          </mat-form-field>
+        </div>
+
+        <!-- password -->
+        <div class="page-element">
+          <span>密碼：</span>
+          <mat-form-field appearance="outline">
+            <mat-label>請輸入您的密碼</mat-label>
+            <input matInput placeholder="password" />
+          </mat-form-field>
+        </div>
+
+        <div class="page-element element-button-box">
+          <button mat-raised-button>登入</button>
+          <button mat-raised-button>忘記密碼</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
