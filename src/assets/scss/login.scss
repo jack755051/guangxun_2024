@@ -4,45 +4,82 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.311),
+      rgba(255, 255, 255, 0.211)
+    ),
+    url(../images/login-background.jpg);
+  background-size: cover;
 
   > .login-form-shell {
-    width: 50vw;
-    height: 70vh;
+    width: 60vw;
+    height: $login-form-shell;
     background-color: $primary-background-color;
+    border: $login-page-border solid;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    > .login-form-type-option {
-      width: 100%;
-      min-height: calc(($login-page-heigth) / 3 * 2);
-      line-height: calc(($login-page-heigth) / 3 * 2);
-      //   background-color: aqua;
-      display: flex;
-      justify-content: center;
+    > .item {
+      flex: 1;
 
-      > ul {
+      &.login-form-image {
         width: 100%;
-        min-height: calc(($login-page-heigth) / 3 * 2);
+        height: 100%;
+        border-radius: 0em 3em 3em 0em;
+        background-image: url(../images/login-form-item.jpg);
+        background-size: cover;
+      }
+
+      &.login-form-input {
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        gap: 20px;
+        width: 100%;
+        height: calc(($login-form-shell) / 3 * 2);
+        flex-direction: column;
+        align-items: center;
 
-        > li {
-          width: 20%;
-          list-style: none;
-          background-color: red;
-          border-radius: 1em 1em 0em 0em;
+        > h1 {
+          font-size: xx-large;
+          margin-bottom: 3vh;
+          margin-top: calc(($login-form-shell) / 4);
+        }
 
-          > .login-type-button {
+        > form {
+          width: 90%;
+          height: 100%;
+
+          > .page-element {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.8vh;
+
+            > span {
+              margin-bottom: 0.2rem;
+            }
+
+            > mat-form-field {
+              width: 80%;
+            }
+
+            > .element-button-box {
+              width: 80%;
+              height: calc(($login-form-shell) / 14);
+              border: none;
+              background-color: $primary-button-color;
+            }
+
+            > .sign-up {
+              margin-top: 0.5vh;
+              > a {
+                padding-left: 2vh;
+              }
+            }
           }
         }
       }
-    }
-
-    > .page-element {
-      display: flex;
-      flex-direction: column;
     }
   }
 }
