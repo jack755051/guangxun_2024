@@ -1,5 +1,6 @@
 <div class="login-page-shell">
-  <div class="login-form-shell">
+  <!-- LLOGIN -->
+  <div class="login-form-shell" *ngIf="loginPageType === LoginPageType.LOGIN">
     <div class="login-form-image item"></div>
     <div class="login-form-input item">
       <h1>LOGIN</h1>
@@ -23,11 +24,57 @@
         </div>
 
         <div class="page-element">
-          <button class="element-button-box">Login</button>
+          <button class="element-button-box">{{ buttonText }}</button>
         </div>
         <div class="page-element">
           <span class="sign-up"
-            >Doesn't have an account?<a href="#">Sign up for free</a></span
+            >Doesn't have an account?
+            <a
+              ><span (click)="toggleLoginType()">Sign up for free</span></a
+            ></span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- REGISTER -->
+  <div
+    class="login-form-shell"
+    *ngIf="loginPageType === LoginPageType.REGISTER"
+  >
+    <div class="login-form-image item"></div>
+    <div class="login-form-input item">
+      <h1>REGISTER</h1>
+      <form>
+        <!-- account -->
+        <div class="page-element">
+          <!-- <span>Username：</span> -->
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Please build your Account</mat-label>
+            <input type="text" matInput placeholder="account" />
+          </mat-form-field>
+        </div>
+
+        <!-- password -->
+        <div class="page-element">
+          <!-- <span>Password：</span> -->
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Please build your password</mat-label>
+            <input matInput placeholder="password" />
+          </mat-form-field>
+        </div>
+
+        <div class="page-element">
+          <button class="element-button-box">
+            {{ buttonText }}
+          </button>
+        </div>
+        <div class="page-element">
+          <span class="sign-up"
+            >Doesn't have an account?
+            <a
+              ><span (click)="toggleLoginType()">Sign up for free</span></a
+            ></span
           >
         </div>
       </form>

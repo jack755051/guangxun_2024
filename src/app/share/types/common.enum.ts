@@ -1,0 +1,5 @@
+export enum LoginPageType {
+  LOGIN = 'LOGIN',
+  REGISTER = 'REGISTER',
+  FORGOT_PASSWORD = 'FORGOT_PASSWORD',
+}

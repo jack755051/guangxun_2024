@@ -5,6 +5,10 @@ import {
   provideClientHydration,
 } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 // material module
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,6 +28,8 @@ import { SharedModule } from './share/share.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     CoreModule,
     SharedModule,
 
