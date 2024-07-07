@@ -1,24 +1,61 @@
 <div class="login-page-shell">
-  <!-- LLOGIN -->
-  <div class="login-form-shell" *ngIf="loginPageType === LoginPageType.LOGIN">
+  <!-- LOGIN -->
+  <div class="login-form-shell">
     <div class="login-form-image item"></div>
     <div class="login-form-input item">
-      <h1>LOGIN</h1>
+      <h1>
+        {{ loginPageType === LoginPageType.LOGIN ? "LOGIN" : "REGISTER" }}
+      </h1>
       <form>
         <!-- account -->
         <div class="page-element">
           <!-- <span>Username：</span> -->
-          <mat-form-field appearance="outline">
-            <mat-label>Please enter your Account</mat-label>
-            <input type="text" matInput placeholder="account" />
+          <mat-form-field
+            appearance="outline"
+            [color]="
+              loginPageType === LoginPageType.LOGIN ? 'primary' : 'accent'
+            "
+          >
+            <mat-label
+              >Please
+              {{ loginPageType === LoginPageType.LOGIN ? "enter" : "build" }}
+              your Account</mat-label
+            >
+            <input type="text" matInput placeholder="account" #accountInput />
           </mat-form-field>
         </div>
 
         <!-- password -->
         <div class="page-element">
           <!-- <span>Password：</span> -->
-          <mat-form-field appearance="outline">
-            <mat-label>Please enter your password</mat-label>
+          <mat-form-field
+            appearance="outline"
+            [color]="
+              loginPageType === LoginPageType.LOGIN ? 'primary' : 'accent'
+            "
+          >
+            <mat-label
+              >Please
+              {{ loginPageType === LoginPageType.LOGIN ? "enter" : "build" }}
+              your password</mat-label
+            >
+            <input matInput placeholder="password" />
+          </mat-form-field>
+        </div>
+
+        <!-- reconfirm password -->
+        <div
+          class="page-element"
+          *ngIf="loginPageType === LoginPageType.REGISTER"
+        >
+          <!-- <span>Password：</span> -->
+          <mat-form-field
+            appearance="outline"
+            [color]="
+              loginPageType === LoginPageType.LOGIN ? 'primary' : 'accent'
+            "
+          >
+            <mat-label>Please confirm your password</mat-label>
             <input matInput placeholder="password" />
           </mat-form-field>
         </div>
@@ -28,52 +65,17 @@
         </div>
         <div class="page-element">
           <span class="sign-up"
-            >Doesn't have an account?
+            >{{
+              loginPageType === LoginPageType.LOGIN
+                ? loginPageHint["login"][0]
+                : loginPageHint["register"][0]
+            }}
             <a
-              ><span (click)="toggleLoginType()">Sign up for free</span></a
-            ></span
-          >
-        </div>
-      </form>
-    </div>
-  </div>
-  <!-- REGISTER -->
-  <div
-    class="login-form-shell"
-    *ngIf="loginPageType === LoginPageType.REGISTER"
-  >
-    <div class="login-form-image item"></div>
-    <div class="login-form-input item">
-      <h1>REGISTER</h1>
-      <form>
-        <!-- account -->
-        <div class="page-element">
-          <!-- <span>Username：</span> -->
-          <mat-form-field appearance="outline" color="accent">
-            <mat-label>Please build your Account</mat-label>
-            <input type="text" matInput placeholder="account" />
-          </mat-form-field>
-        </div>
-
-        <!-- password -->
-        <div class="page-element">
-          <!-- <span>Password：</span> -->
-          <mat-form-field appearance="outline" color="accent">
-            <mat-label>Please build your password</mat-label>
-            <input matInput placeholder="password" />
-          </mat-form-field>
-        </div>
-
-        <div class="page-element">
-          <button class="element-button-box">
-            {{ buttonText }}
-          </button>
-        </div>
-        <div class="page-element">
-          <span class="sign-up"
-            >Doesn't have an account?
-            <a
-              ><span (click)="toggleLoginType()">Sign up for free</span></a
+              ><span (click)="toggleLoginType()" class="login-toggle">{{
+                loginPageType === LoginPageType.LOGIN
+                  ? loginPageHint["login"][1]
+                  : loginPageHint["register"][1]
+              }}</span></a
             ></span
           >
         </div>
