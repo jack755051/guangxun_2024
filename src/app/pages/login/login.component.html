@@ -6,7 +6,7 @@
       <h1>
         {{ loginPageType === LoginPageType.LOGIN ? "LOGIN" : "REGISTER" }}
       </h1>
-      <form>
+      <form [formGroup]="formGroup">
         <!-- account -->
         <div class="page-element">
           <!-- <span>Username：</span> -->
@@ -28,6 +28,9 @@
               #accountInput
               formControlName="username"
             />
+            <mat-error *ngIf="username.invalid">{{
+              this.commonService.detectFormControlValid(username)
+            }}</mat-error>
           </mat-form-field>
         </div>
 
@@ -46,6 +49,9 @@
               your password</mat-label
             >
             <input matInput placeholder="password" formControlName="password" />
+            <mat-error *ngIf="password.invalid">{{
+              this.commonService.detectFormControlValid(password)
+            }}</mat-error>
           </mat-form-field>
         </div>
 
@@ -79,11 +85,17 @@
                 isPasswordHide ? "visibility_off" : "visibility"
               }}</mat-icon>
             </button>
+            <mat-error *ngIf="confirmPassword.invalid"></mat-error>
           </mat-form-field>
         </div>
 
         <div class="page-element">
-          <button class="element-button-box">{{ buttonText }}</button>
+          <button
+            class="element-button-box"
+            (click)="executeLogin(loginPageType)"
+          >
+            {{ buttonText }}
+          </button>
         </div>
         <div class="page-element">
           <span class="sign-up"

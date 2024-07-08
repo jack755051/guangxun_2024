@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
 //page
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -40,6 +41,7 @@ import { SharedModule } from './share/share.module';
     MatIconModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatDialogModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

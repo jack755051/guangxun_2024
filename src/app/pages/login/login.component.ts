@@ -9,6 +9,7 @@ import { LoginPageType } from '../../share/types/common.enum';
 import { CommonService } from '../../share/services/common.service';
 import { register } from 'module';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { regexLoginPagePassword } from '../../share/types/common.regex';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
 
   constructor(
-    private commonService: CommonService,
+    public commonService: CommonService,
     private cdr: ChangeDetectorRef
   ) {
     this.LoginPageType = LoginPageType;
@@ -63,10 +64,57 @@ export class LoginComponent implements OnInit {
 
   initFormGroup(): void {
     this.formGroup = new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl(''),
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern(regexLoginPagePassword),
+      ]),
       confirmPassword: new FormControl(''),
     });
+
+    if (this.loginPageType === LoginPageType.REGISTER) {
+      this.formGroup
+        .get('confirmPassword')
+        ?.setValidators([
+          Validators.required,
+          Validators.minLength(6),
+          Validators.pattern(regexLoginPagePassword),
+        ]);
+      this.formGroup.get('confirmPassword')?.updateValueAndValidity();
+    }
+  }
+
+  /**
+   * 執行登入/創建帳號
+   * @param form
+   */
+  executeLogin(postType: LoginPageType, form?: FormGroup): void {
+    console.log('送出的類別', postType);
+  }
+
+  /**
+   * 切換登入狀態時執行
+   */
+  configureValidators(): void {
+    if (this.LoginPageType === LoginPageType.REGISTER) {
+      this.formGroup
+        .get('confirmPassword')
+        ?.setValidators([
+          Validators.required,
+          Validators.minLength(6),
+          Validators.pattern(regexLoginPagePassword),
+        ]);
+    } else {
+      this.formGroup.get('confirmPassword')?.clearValidators();
+      this.formGroup.get('confirmPassword')?.reset();
+    }
+    this.formGroup.get('username')?.updateValueAndValidity();
+    this.formGroup.get('password')?.updateValueAndValidity();
+    this.formGroup.get('confirmPassword')?.updateValueAndValidity();
   }
 
   /**
@@ -78,9 +126,31 @@ export class LoginComponent implements OnInit {
         ? LoginPageType.REGISTER
         : LoginPageType.LOGIN;
 
+    // 按鈕文本依狀態改變
     this.buttonText = this.loginPageType.toLowerCase();
+    // 重新配置所有欄位的驗證器
+    this.configureValidators();
+    // 更新整個表單的有效性狀態
+    // this.formGroup.updateValueAndValidity();
+    // 清理所有欄位內容
+    this.formGroup.reset();
+    // 確保狀態變化後立即檢測變化
+    this.cdr.detectChanges();
+    // 執行欄位聚焦
     this.focus();
 
-    console.log('loginPageType', this.loginPageType);
+    // console.log('loginPageType', this.loginPageType);
+  }
+
+  get username() {
+    return this.formGroup.get('username') as FormControl;
+  }
+
+  get password() {
+    return this.formGroup.get('password') as FormControl;
+  }
+
+  get confirmPassword() {
+    return this.formGroup.get('confirmPassword') as FormControl;
   }
 }
