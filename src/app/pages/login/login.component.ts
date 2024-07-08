@@ -1,7 +1,14 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { LoginPageType } from '../../share/types/common.enum';
 import { CommonService } from '../../share/services/common.service';
 import { register } from 'module';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +25,12 @@ export class LoginComponent implements OnInit {
   buttonText: string = '';
   loginPageHint!: { [key: string]: string[] };
 
-  constructor(private commonService: CommonService) {
+  formGroup!: FormGroup;
+
+  constructor(
+    private commonService: CommonService,
+    private cdr: ChangeDetectorRef
+  ) {
     this.LoginPageType = LoginPageType;
     this.loginPageHint = {
       login: ["Doesn't have an account?", 'Sign up for free'],
@@ -42,10 +54,19 @@ export class LoginComponent implements OnInit {
 
   initPage(): void {
     this.buttonText = LoginPageType.LOGIN.toLowerCase();
+    this.initFormGroup();
   }
 
   focus(): void {
     this.accountInput.nativeElement.focus();
+  }
+
+  initFormGroup(): void {
+    this.formGroup = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl(''),
+      confirmPassword: new FormControl(''),
+    });
   }
 
   /**

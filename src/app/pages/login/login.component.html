@@ -21,7 +21,13 @@
               {{ loginPageType === LoginPageType.LOGIN ? "enter" : "build" }}
               your Account</mat-label
             >
-            <input type="text" matInput placeholder="account" #accountInput />
+            <input
+              type="text"
+              matInput
+              placeholder="account"
+              #accountInput
+              formControlName="username"
+            />
           </mat-form-field>
         </div>
 
@@ -39,7 +45,7 @@
               {{ loginPageType === LoginPageType.LOGIN ? "enter" : "build" }}
               your password</mat-label
             >
-            <input matInput placeholder="password" />
+            <input matInput placeholder="password" formControlName="password" />
           </mat-form-field>
         </div>
 
@@ -48,7 +54,7 @@
           class="page-element"
           *ngIf="loginPageType === LoginPageType.REGISTER"
         >
-          <!-- <span>Password：</span> -->
+          <!-- Only sign up -->
           <mat-form-field
             appearance="outline"
             [color]="
@@ -56,7 +62,23 @@
             "
           >
             <mat-label>Please confirm your password</mat-label>
-            <input matInput placeholder="password" />
+            <input
+              matInput
+              placeholder="password"
+              [type]="isPasswordHide ? 'password' : 'text'"
+              formControlName="confirmPassword"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="isPasswordHide = !isPasswordHide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="isPasswordHide"
+            >
+              <mat-icon>{{
+                isPasswordHide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
           </mat-form-field>
         </div>
 
