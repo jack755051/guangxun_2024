@@ -1,1 +1,4 @@
-// export interface
+export interface Imageurl {
+  loginImageUrl: string;
+  registerImageUrl: string;
+}

@@ -1,8 +1,17 @@
 <div class="login-page-shell">
   <!-- LOGIN -->
   <div class="login-form-shell">
-    <div class="login-form-image item"></div>
-    <div class="login-form-input item">
+    <div
+      class="login-form-image item"
+      [class.flip-image]="loginPageType === LoginPageType.REGISTER"
+      [style.background-image]="
+        'url(assets/images/' + currentImageUrl + '.jpg)'
+      "
+    ></div>
+    <div
+      class="login-form-input item"
+      [class.flip-input]="loginPageType === LoginPageType.REGISTER"
+    >
       <h1>
         {{ loginPageType === LoginPageType.LOGIN ? "LOGIN" : "REGISTER" }}
       </h1>
