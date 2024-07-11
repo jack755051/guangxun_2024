@@ -1,0 +1,23 @@
+@import "../../../styles.scss";
+
+.error-page-shell {
+  @include custom-layout-shell;
+  > .error-page-content {
+    @include custom-layout-content;
+    flex-direction: column;
+    > .error-page-image {
+      width: 40%;
+    }
+    > .error-page-text {
+      font-size: $font-size-big;
+    }
+    > .error-page-button {
+      > button {
+        @include custom-button($primary-button-color, 2rem);
+        &:hover {
+          color: $primary-background-color;
+        }
+      }
+    }
+  }
+}

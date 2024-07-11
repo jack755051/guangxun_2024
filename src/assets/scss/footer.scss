@@ -13,6 +13,7 @@
 
 //
 .footer-style {
+  @include custom-margin(0em, 2.5em);
   color: #ffffff;
   align-items: flex-start;
   width: 100%;

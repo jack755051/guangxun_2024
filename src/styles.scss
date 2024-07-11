@@ -24,7 +24,7 @@ $primary-button-color: #ffa500;
 $secondary-button-color: #5f9ea0;
 
 //Background Color
-$primary-background-color: #fffdfdcb;
+$primary-background-color: rgb(245 245 245 / 80%);
 $secondary-background-color: #f0f0f0;
 
 $component-basic-height: 1vh;
@@ -38,16 +38,47 @@ $login-form-shell: 72vh;
 //header Page
 $header-font-size: 1.2rem;
 
-.custom-button {
-  background: none; /* 刪除底色 */
-  border: none; /* 刪除邊框 */
-  padding: 8px 16px; /* 添加一些內部間距 */
-  color: #333; /* 設置文字顏色 */
-  font-size: 16px; /* 設置文字大小 */
-  cursor: pointer; /* 當滑鼠懸停時顯示指針 */
+//font-size
+$font-size-large: 4rem;
+$font-size-big: 3rem;
+$font-size-standard: 1.2rem;
+
+@mixin custom-margin($header, $footer) {
+  margin-bottom: $header;
+  margin-top: $footer;
+}
+//main-page
+@mixin custom-layout-shell {
+  width: 90vw;
+  // height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: #ffa500;
+  margin: 0 auto;
+  padding: calc($component-basic-height * 3);
+}
+
+@mixin custom-layout-content {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin custom-button($color, $border-radius) {
+  width: 50vh;
+  height: calc(($login-form-shell) / 14);
+  font-size: $header-font-size;
+  border: none;
+  background-color: $color;
+  border-radius: $border-radius;
 }
 
 @import "assets/scss/breadcrumb.scss";
 @import "assets/scss/header.scss";
 @import "assets/scss/footer.scss";
 @import "assets/scss/login.scss";
+@import "assets/scss//error-page.scss";
