@@ -1,0 +1,50 @@
+.header-page-shell {
+  width: 100%;
+  height: calc($component-basic-height * 10);
+  display: flex;
+  flex-direction: row;
+
+  > .header-page-logo {
+    flex: 1.5;
+    height: inherit;
+    align-items: center;
+    // background-color: aqua;
+    display: flex;
+    justify-content: center;
+
+    > .header-page-logo-image {
+      width: 80%;
+      height: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  > .header-page-navbar {
+    flex: 7;
+    height: inherit;
+    align-items: center;
+
+    > .header-page-navbar-link {
+      list-style: none;
+      width: 100%;
+      height: inherit;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      > li {
+        > button {
+          //   color: $secondary-color;
+          font-size: $header-font-size;
+        }
+      }
+    }
+  }
+
+  > .header-page-space {
+    flex: 1.5;
+    background-color: $secondary-color;
+  }
+}

@@ -1,0 +1,69 @@
+// 共用部分
+
+@mixin list-style-none {
+  list-style: none;
+  font-size: medium;
+  padding-bottom: 0.2em;
+  vertical-align: middle;
+}
+
+@mixin center-align-items {
+  align-items: center;
+}
+
+//
+.footer-style {
+  color: #ffffff;
+  align-items: flex-start;
+  width: 100%;
+  height: 15rem;
+  background-color: #3d3d3d;
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .footer-style-left,
+  .footer-style-right {
+    width: 400px;
+    @include center-align-items;
+
+    > ul {
+      margin-top: 2rem;
+      @include center-align-items;
+
+      > li {
+        @include list-style-none;
+
+        > mat-icon {
+          padding-right: 1rem;
+        }
+
+        .image {
+          width: 3rem; // 圖片寬度
+          height: 3rem; // 圖片高度
+          background-size: cover; // 背景圖片覆蓋整個元素
+          transition: background-image 0.3s; // 過渡效果Í
+
+          &.facebook {
+            background-image: url("../images/icon/facebook.svg"); // 初始圖片
+            &:hover {
+              background-image: url("../images/icon/facebook_color.svg"); // 懸停時的圖片
+            }
+          }
+
+          &.facebook-messenger {
+            background-image: url("../images/icon/facebook-messenger.svg"); // 初始圖片
+            &:hover {
+              background-image: url("../images/icon/facebook-messenger_color.svg"); // 懸停時的圖片
+            }
+          }
+        }
+
+        .image:not(:first-child) {
+          margin-left: 1.25rem;
+        }
+      }
+    }
+  }
+}

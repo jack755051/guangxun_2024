@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
   //  頁面加載完成
   ngAfterViewInit() {
     this.focus();
+    this.cdr.detectChanges();
   }
 
   initPage(): void {

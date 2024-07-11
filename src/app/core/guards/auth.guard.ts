@@ -5,7 +5,7 @@ import { isPlatformBrowser } from '@angular/common';
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   if (isPlatformBrowser(inject(PLATFORM_ID))) {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
 
     if (token) {
       console.log('已登入');

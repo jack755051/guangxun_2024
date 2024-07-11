@@ -1,1 +1,17 @@
-<p>header works!</p>
+<div class="header-page-shell">
+  <div class="header-page-logo">
+    <div class="header-page-logo-image">
+      <img src="../../../../assets/images/image/logo.jpg" alt="logo-image" />
+    </div>
+  </div>
+  <div class="header-page-navbar">
+    <ul class="header-page-navbar-link">
+      <li *ngFor="let item of pageLinkList">
+        <button mat-button routerLink="{{ item.pageRouterLink }}">
+          {{ item.pageName }}
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="header-page-space"></div>
+</div>

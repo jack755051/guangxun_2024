@@ -16,21 +16,27 @@ body {
 $primary-color: #1e90ff;
 $secondary-color: #f5f5f5;
 
-//
 // $link-text-color: #324aff;
 $link-text-hover-color: #324aff;
+
 //Button Color
 $primary-button-color: #ffa500;
 $secondary-button-color: #5f9ea0;
+
 //Background Color
 $primary-background-color: #fffdfdcb;
 $secondary-background-color: #f0f0f0;
+
+$component-basic-height: 1vh;
 
 //Login Page
 $login-page-border-radius: 25px;
 $login-page-heigth: 6vh;
 $login-page-border: 0.1em;
 $login-form-shell: 72vh;
+
+//header Page
+$header-font-size: 1.2rem;
 
 .custom-button {
   background: none; /* 刪除底色 */
@@ -43,4 +49,5 @@ $login-form-shell: 72vh;
 
 @import "assets/scss/breadcrumb.scss";
 @import "assets/scss/header.scss";
+@import "assets/scss/footer.scss";
 @import "assets/scss/login.scss";
