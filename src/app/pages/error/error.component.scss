@@ -3,8 +3,8 @@
 .error-page-shell {
   @include custom-layout-shell;
   > .error-page-content {
-    @include custom-layout-content;
-    flex-direction: column;
+    @include custom-layout-content(column, 50%);
+    // flex-direction: column;
     > .error-page-image {
       width: 40%;
     }

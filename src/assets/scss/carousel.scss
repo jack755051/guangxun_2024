@@ -1,0 +1,30 @@
+.carousel-page-shell {
+  @include custom-layout-content(column, 500px);
+  > .carousel-page-image-box,
+  .carousel-page-operation-btn,
+  .carousel-page-bottom-bar {
+    width: 100%;
+  }
+
+  > .carousel-page-operation-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  > .carousel-page-bottom-bar {
+    @include horizontally-vertically-center;
+    width: 15% !important;
+    height: 30px !important;
+    background-color: $primary-background-color;
+
+    > .bottom-bar-page-ball {
+      width: $carousel-page-ball-button;
+      height: $carousel-page-ball-button;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: red;
+    }
+  }
+}

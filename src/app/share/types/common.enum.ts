@@ -4,6 +4,11 @@ export enum LoginPageType {
   FORGOT_PASSWORD = 'FORGOT_PASSWORD',
 }
 
+export enum SwitchOperation {
+  previous = 'previous',
+  next = 'next',
+}
+
 export enum FormErrorMessages {
   Required = '必填',
   MinLength = '最小長度',

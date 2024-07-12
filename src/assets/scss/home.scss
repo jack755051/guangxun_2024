@@ -1,0 +1,11 @@
+.home-page-shell {
+  @include custom-layout-shell;
+  > .home-page-container {
+    @include custom-layout-content(column, 50%);
+    background-color: rgb(42, 246, 246);
+
+    > .home-page-test-shell {
+      @include horizontally-vertically-center;
+    }
+  }
+}

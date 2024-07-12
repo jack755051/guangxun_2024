@@ -25,9 +25,10 @@ import { ErrorComponent } from './pages/error/error.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './share/share.module';
+import { CarouselComponent } from './utils/components/carousel/carousel.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrorComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, ErrorComponent, LoginComponent, CarouselComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

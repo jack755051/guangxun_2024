@@ -43,27 +43,29 @@ $font-size-large: 4rem;
 $font-size-big: 3rem;
 $font-size-standard: 1.2rem;
 
+// button-list
+$carousel-page-ball-button: 1.5rem;
+
 @mixin custom-margin($header, $footer) {
   margin-bottom: $header;
   margin-top: $footer;
 }
 //main-page
 @mixin custom-layout-shell {
-  width: 90vw;
-  // height: 70vh;
+  width: 75vw;
+  max-width: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // background-color: #ffa500;
   margin: 0 auto;
   padding: calc($component-basic-height * 3);
 }
 
-@mixin custom-layout-content {
+@mixin custom-layout-content($flexType, $height) {
   width: 100%;
-  height: 50%;
+  height: $height;
   display: flex;
-  flex-direction: column;
+  flex-direction: $flexType;
   justify-content: center;
   align-items: center;
 }
@@ -77,8 +79,19 @@ $font-size-standard: 1.2rem;
   border-radius: $border-radius;
 }
 
+@mixin horizontally-vertically-center {
+  width: 100%;
+  height: inherit;
+  background-color: #ffa500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @import "assets/scss/breadcrumb.scss";
 @import "assets/scss/header.scss";
 @import "assets/scss/footer.scss";
 @import "assets/scss/login.scss";
-@import "assets/scss//error-page.scss";
+@import "assets/scss/error-page.scss";
+@import "assets/scss/home.scss";
+@import "assets/scss/carousel.scss";

@@ -1,0 +1,18 @@
+<div class="carousel-page-shell">
+  <!-- 圖片 -->
+  <div class="carousel-page-image-box"></div>
+  <!-- 按鈕 -->
+  <div class="carousel-page-operation-btn">
+    <button mat-button (click)="changeImage(SwitchOperation.previous)">
+      <mat-icon fontIcon="chevron_left"></mat-icon>
+    </button>
+    <button mat-button (click)="changeImage(SwitchOperation.next)">
+      <mat-icon fontIcon="chevron_right"></mat-icon>
+    </button>
+  </div>
+  <!-- 下方按鈕 -->
+  <div class="carousel-page-bottom-bar">
+    <div class="bottom-bar-page-ball"></div>
+    <div class="bottom-bar-page-ball"></div>
+  </div>
+</div>
