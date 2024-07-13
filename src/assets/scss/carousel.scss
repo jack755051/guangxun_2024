@@ -16,15 +16,16 @@
   > .carousel-page-bottom-bar {
     @include horizontally-vertically-center;
     width: 15% !important;
-    height: 30px !important;
+    height: 1.8rem !important;
     background-color: $primary-background-color;
+    border-radius: 0.8rem;
 
     > .bottom-bar-page-ball {
       width: $carousel-page-ball-button;
       height: $carousel-page-ball-button;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background-color: red;
+      border: 0.1rem solid #212121;
+      margin: 0 calc($carousel-page-ball-button / 5);
     }
   }
 }

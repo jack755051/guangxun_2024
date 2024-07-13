@@ -10,3 +10,8 @@ export interface HeaderPageLink {
   pageRouterLink: string;
   isHasChild: boolean;
 }
+
+export interface imageArray {
+  imageSrc: string;
+  imageAlt: string;
+}

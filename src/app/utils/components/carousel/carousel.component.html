@@ -3,16 +3,19 @@
   <div class="carousel-page-image-box"></div>
   <!-- 按鈕 -->
   <div class="carousel-page-operation-btn">
-    <button mat-button (click)="changeImage(SwitchOperation.previous)">
+    <button mat-button (click)="changeImageMiddleBtn(SwitchOperation.previous)">
       <mat-icon fontIcon="chevron_left"></mat-icon>
     </button>
-    <button mat-button (click)="changeImage(SwitchOperation.next)">
+    <button mat-button (click)="changeImageMiddleBtn(SwitchOperation.next)">
       <mat-icon fontIcon="chevron_right"></mat-icon>
     </button>
   </div>
   <!-- 下方按鈕 -->
   <div class="carousel-page-bottom-bar">
-    <div class="bottom-bar-page-ball"></div>
-    <div class="bottom-bar-page-ball"></div>
+    <div
+      class="bottom-bar-page-ball"
+      *ngFor="let item of imageArrays; let j = index"
+      (click)="changeImageBottomBar(j)"
+    ></div>
   </div>
 </div>
