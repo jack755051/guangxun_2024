@@ -52,13 +52,13 @@ $carousel-page-ball-button: 1rem;
 }
 //main-page
 @mixin custom-layout-shell {
-  width: 75vw;
-  max-width: 80vw;
+  width: 85vw;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  padding: calc($component-basic-height * 3);
+  // padding: calc($component-basic-height * 3);
 }
 
 @mixin custom-layout-content($flexType, $height) {

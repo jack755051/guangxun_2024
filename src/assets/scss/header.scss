@@ -1,5 +1,5 @@
 .header-page-shell {
-  @include custom-margin(2.5em, 0em);
+  @include custom-margin(0em, 0em);
   width: 100%;
   height: calc($component-basic-height * 10);
   display: flex;

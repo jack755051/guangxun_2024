@@ -1,21 +1,37 @@
 <div class="carousel-page-shell">
-  <!-- 圖片 -->
-  <div class="carousel-page-image-box"></div>
-  <!-- 按鈕 -->
-  <div class="carousel-page-operation-btn">
-    <button mat-button (click)="changeImageMiddleBtn(SwitchOperation.previous)">
-      <mat-icon fontIcon="chevron_left"></mat-icon>
-    </button>
-    <button mat-button (click)="changeImageMiddleBtn(SwitchOperation.next)">
-      <mat-icon fontIcon="chevron_right"></mat-icon>
-    </button>
-  </div>
-  <!-- 下方按鈕 -->
-  <div class="carousel-page-bottom-bar">
-    <div
-      class="bottom-bar-page-ball"
-      *ngFor="let item of imageArrays; let j = index"
-      (click)="changeImageBottomBar(j)"
-    ></div>
+  <div class="carousel-page-image-container">
+    <!-- 圖片 -->
+    <div class="carousel-page-images">
+      <img
+        src="{{ imageArrays[currentImageIndex].imageSrc }}"
+        alt="{{ imageArrays[currentImageIndex].imageAlt }}"
+      />
+    </div>
+    <!-- 按鈕 -->
+    <div class="carousel-page-operation-btn">
+      <button
+        mat-button
+        aria-label="Previous image"
+        (click)="changeImageMiddleBtn(SwitchOperation.previous)"
+      >
+        <mat-icon fontIcon="chevron_left"></mat-icon>
+      </button>
+      <button
+        mat-button
+        aria-label="Next image"
+        (click)="changeImageMiddleBtn(SwitchOperation.next)"
+      >
+        <mat-icon fontIcon="chevron_right"></mat-icon>
+      </button>
+    </div>
+    <!-- 下方按鈕 -->
+    <div class="carousel-page-bottom-bar">
+      <div
+        class="bottom-bar-page-ball"
+        *ngFor="let item of imageArrays; let j = index"
+        (click)="changeImageBottomBar(j)"
+        [ngClass]="{ active: j === currentImageIndex }"
+      ></div>
+    </div>
   </div>
 </div>

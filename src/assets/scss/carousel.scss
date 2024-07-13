@@ -1,31 +1,57 @@
 .carousel-page-shell {
-  @include custom-layout-content(column, 500px);
-  > .carousel-page-image-box,
-  .carousel-page-operation-btn,
-  .carousel-page-bottom-bar {
-    width: 100%;
-  }
+  @include custom-layout-shell;
+  max-width: 1200px;
+  height: 500px !important;
 
-  > .carousel-page-operation-btn {
+  > .carousel-page-image-container {
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+    flex-direction: column;
+    position: relative;
+    > .carousel-page-images {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    > .carousel-page-operation-btn {
+      width: 100%;
+      display: flex;
+      top: 50%;
+      transform: translateY(-50%);
+      flex-direction: row;
+      justify-content: space-between;
+      position: absolute;
+    }
 
-  > .carousel-page-bottom-bar {
-    @include horizontally-vertically-center;
-    width: 15% !important;
-    height: 1.8rem !important;
-    background-color: $primary-background-color;
-    border-radius: 0.8rem;
+    > .carousel-page-bottom-bar {
+      @include horizontally-vertically-center;
+      position: absolute;
+      bottom: 10px; // 設定一個固定的距離從底部
+      left: 50%; // 將left設置為50%以將元素中心對齊父容器的中心
+      transform: translateX(
+        -50%
+      ); // 使用transform來精確地向左移動元素的一半寬度，達到完全居中
+      width: 15% !important;
+      height: 1.8rem !important;
+      background-color: $primary-background-color;
+      border-radius: 0.8rem;
 
-    > .bottom-bar-page-ball {
-      width: $carousel-page-ball-button;
-      height: $carousel-page-ball-button;
-      border-radius: 50%;
-      border: 0.1rem solid #212121;
-      margin: 0 calc($carousel-page-ball-button / 5);
+      > .bottom-bar-page-ball {
+        width: $carousel-page-ball-button;
+        height: $carousel-page-ball-button;
+        border-radius: 50%;
+        border: 0.1rem solid #212121;
+        margin: 0 calc($carousel-page-ball-button / 5);
+
+        &.active {
+          background-color: black;
+        }
+      }
     }
   }
 }

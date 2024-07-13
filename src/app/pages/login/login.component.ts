@@ -110,6 +110,7 @@ export class LoginComponent implements OnInit {
    */
   executeLogin(postType: LoginPageType, form?: FormGroup): void {
     console.log('送出的類別', postType);
+    sessionStorage.setItem('token', 'aaaa');
   }
 
   /**
