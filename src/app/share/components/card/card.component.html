@@ -1,1 +1,17 @@
-<p>card works!</p>
+<mat-card class="card-shell" *ngFor="let card of matCardData; let i = index">
+  <mat-card-header>
+    <mat-card-title>{{ card.headerTitle }}</mat-card-title>
+    <mat-card-subtitle>{{ card.headerSubTitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <img
+      src="../../../../assets/images/image/{{ card.image.imageSrc }}"
+      alt="{{ card.image.imageAlt }}"
+    />
+
+    <p>{{ card.content }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>{{ card.action }}</button>
+  </mat-card-actions>
+</mat-card>

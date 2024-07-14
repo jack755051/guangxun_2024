@@ -20,3 +20,8 @@ export enum FormErrorMessages {
 export enum RegexErrorType {
   regexLoginPagePassword = '',
 }
+
+// ==== card-page ====
+export enum ActionsType {
+  enter = '進入',
+}

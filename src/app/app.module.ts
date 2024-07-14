@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 //page
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -28,7 +29,13 @@ import { SharedModule } from './share/share.module';
 import { CarouselComponent } from './utils/components/carousel/carousel.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrorComponent, LoginComponent, CarouselComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ErrorComponent,
+    LoginComponent,
+    CarouselComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,13 +44,14 @@ import { CarouselComponent } from './utils/components/carousel/carousel.componen
     CoreModule,
     SharedModule,
     ReactiveFormsModule,
-
+    // material module
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatAutocompleteModule,
     MatDialogModule,
+    MatCardModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

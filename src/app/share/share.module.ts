@@ -12,6 +12,7 @@ import { ErrorDailogComponent } from './components/dailog/error-dailog/error-dai
 // Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,14 @@ import { MatIconModule } from '@angular/material/icon';
     CardComponent,
     ErrorDailogComponent,
   ],
-  imports: [CommonModule, RouterModule, MatButtonModule, MatIconModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+  ],
+
   providers: [],
   exports: [
     HeaderComponent,

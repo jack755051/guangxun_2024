@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { imageArray } from '../../share/types/commom.interface';
+import { imageArray, MatCardType } from '../../share/types/commom.interface';
+import { ActionsType } from '../../share/types/common.enum';
 
 @Component({
   selector: 'app-home',
@@ -8,17 +9,52 @@ import { imageArray } from '../../share/types/commom.interface';
 })
 export class HomeComponent implements OnInit {
   imagesSrc: imageArray[] = [];
+  matCardData: MatCardType[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
     // 直接進入系統
     sessionStorage.setItem('token', 'a');
+    this.matCardData = [
+      {
+        headerTitle: 'GC-IP50-W288',
+        headerSubTitle: '2MP電動變焦',
+        image: {
+          imageSrc: 'image-no-found.png',
+          imageAlt: 'image-no-found.png',
+        },
+        content: '',
+        action: ActionsType.enter,
+      },
+      {
+        headerTitle: 'GC-IP50-W288',
+        headerSubTitle: '2MP電動變焦',
+        image: {
+          imageSrc: 'image-no-found.png',
+          imageAlt: 'image-no-found.png',
+        },
+        content: '',
+        action: ActionsType.enter,
+      },
+      {
+        headerTitle: 'GC-IP50-W288',
+        headerSubTitle: '2MP電動變焦',
+        image: {
+          imageSrc: 'image-no-found.png',
+          imageAlt: 'image-no-found.png',
+        },
+        content: '',
+        action: ActionsType.enter,
+      },
+    ];
+
     this.initConfig();
   }
 
   initConfig(): void {
     this.buildCarouselImage(4);
+    // this.buildCardData();
   }
 
   /**
@@ -33,4 +69,8 @@ export class HomeComponent implements OnInit {
       });
     }
   }
+
+  // buildCardData(): void {
+  //   this.cardSource.map((item) => this.matCardData.push(item));
+  // }
 }
