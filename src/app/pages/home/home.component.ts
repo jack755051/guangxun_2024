@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { imageArray, MatCardType } from '../../share/types/commom.interface';
-import { ActionsType } from '../../share/types/common.enum';
+import {
+  Accordion,
+  imageArray,
+  MatCardType,
+} from '../../share/types/commom.interface';
+import { ActionsType, PageName } from '../../share/types/common.enum';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +14,8 @@ import { ActionsType } from '../../share/types/common.enum';
 export class HomeComponent implements OnInit {
   imagesSrc: imageArray[] = [];
   matCardData: MatCardType[] = [];
+  matAccordionData: Accordion[] = [];
+  PageName = PageName;
 
   constructor() {}
 
@@ -47,6 +53,53 @@ export class HomeComponent implements OnInit {
         content: '',
         action: ActionsType.enter,
       },
+      {
+        headerTitle: 'GC-IP50-W288',
+        headerSubTitle: '2MP電動變焦',
+        image: {
+          imageSrc: 'image-no-found.png',
+          imageAlt: 'image-no-found.png',
+        },
+        content: '',
+        action: ActionsType.enter,
+      },
+      {
+        headerTitle: 'GC-IP50-W288',
+        headerSubTitle: '2MP電動變焦',
+        image: {
+          imageSrc: 'image-no-found.png',
+          imageAlt: 'image-no-found.png',
+        },
+        content: '',
+        action: ActionsType.enter,
+      },
+      {
+        headerTitle: 'GC-IP50-W288',
+        headerSubTitle: '2MP電動變焦',
+        image: {
+          imageSrc: 'image-no-found.png',
+          imageAlt: 'image-no-found.png',
+        },
+        content: '',
+        action: ActionsType.enter,
+      },
+      {
+        headerTitle: 'GC-IP50-W288',
+        headerSubTitle: '2MP電動變焦',
+        image: {
+          imageSrc: 'image-no-found.png',
+          imageAlt: 'image-no-found.png',
+        },
+        content: '',
+        action: ActionsType.enter,
+      },
+    ];
+    this.matAccordionData = [
+      {
+        panelTitle: '',
+        panelDescription: '',
+        content: '',
+      },
     ];
 
     this.initConfig();
@@ -55,6 +108,7 @@ export class HomeComponent implements OnInit {
   initConfig(): void {
     this.buildCarouselImage(4);
     // this.buildCardData();
+    this.PageName = PageName;
   }
 
   /**

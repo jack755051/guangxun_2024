@@ -1,3 +1,12 @@
+export enum PageName {
+  'latest-news' = '最新消息',
+  'about-guangxun' = '關於我們',
+  'technical-support' = '產品中心',
+  'faq' = '技術支持',
+  'product-center' = '常見問題',
+  'manage' = '管理專區',
+}
+
 export enum LoginPageType {
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',

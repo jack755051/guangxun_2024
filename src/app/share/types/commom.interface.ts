@@ -27,3 +27,10 @@ export interface MatCardType {
   content: string;
   action: ActionsType;
 }
+
+// expansion-panel 展開面板
+export interface Accordion {
+  panelTitle: string;
+  panelDescription: string;
+  content: string;
+}

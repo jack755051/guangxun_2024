@@ -4,7 +4,15 @@
       [imageArrays]="imagesSrc"
       class="home-page-test-shell"
     ></app-carousel>
-    <div class="news-shell horizontally-vertically-center">bbb</div>
+    <!-- 最新消息 -->
+    <div class="block-title">{{ PageName["latest-news"] }}</div>
+    <div class="news-shell">
+      <mat-accordion>
+        <mat-expansion-panel></mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <!-- 熱銷產品 -->
+    <div class="block-title">{{ PageName["technical-support"] }}</div>
     <app-card class="limited-time-offer" [matCardData]="matCardData"></app-card>
   </div>
 </div>

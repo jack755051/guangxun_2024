@@ -1,37 +1,39 @@
 .card-shell {
   flex: 1;
   margin: 0 1rem;
-  box-sizing: border-box; // 確保邊界和填充不會影響卡片的實際尺寸
-  max-width: 25%; // 控制最大寬度，使四張卡片可以在一行顯示
-  min-width: 250px; // 保證卡片在小屏幕上也有最小的可接受寬度
-  height: auto; // 讓高度自動調整以適應內容
+  box-sizing: border-box;
+  max-width: 25%;
+  min-width: 250px;
+  height: auto;
 
   display: flex;
-  flex-direction: column; // 使標題和內容在垂直方向上排列
+  flex-direction: column;
 
   > mat-card-header {
     padding: 0.5rem 1rem; // 適當的填充保持內容不會太擠
   }
   > mat-card-content {
     flex: 1; // 讓內容區域使用可用的所有空間
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+
     > img {
-      max-width: 100%; // 限制圖片最大寬度，保證不會溢出卡片
-      height: auto; // 高度自動
-      object-fit: contain; // 圖片保持比例，但完全顯示在設定區域內
+      max-width: 100%;
+      height: 20vh;
+      object-fit: contain;
     }
 
     p {
-      margin-top: 1rem; // 文字與圖片之間的間隙
+      margin-top: 1rem;
     }
   }
   > mat-card-actions {
     padding: 1rem;
     display: flex;
-    justify-content: flex-end; // 將按鈕對齊到右側
+    justify-content: flex-end;
   }
 }

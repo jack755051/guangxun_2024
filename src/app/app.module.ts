@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 //page
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -52,6 +53,7 @@ import { CarouselComponent } from './utils/components/carousel/carousel.componen
     MatAutocompleteModule,
     MatDialogModule,
     MatCardModule,
+    MatExpansionModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
