@@ -9,6 +9,7 @@ import {
 import { SwitchOperation } from '../../../share/types/common.enum';
 import { CommonService } from '../../../share/services/common.service';
 import { imageArray } from '../../../share/types/commom.interface';
+import { flatMap } from 'rxjs';
 
 @Component({
   selector: 'app-carousel',
@@ -26,6 +27,7 @@ export class CarouselComponent implements OnInit, OnChanges {
   // 定時器的拖延時間
   changeImageDelay!: number;
   imageCount!: number;
+  indices: number[] = [];
 
   constructor(public commonService: CommonService) {}
 
@@ -34,7 +36,21 @@ export class CarouselComponent implements OnInit, OnChanges {
     this.carouselAutoPlay();
   }
 
-  ngOnChanges(changes: SimpleChanges) {}
+  ngOnChanges(changes: SimpleChanges) {
+    //確保當 imageArrays 真正有變化時才執行邏輯。
+    if (
+      changes['imageArrays'] &&
+      changes['imageArrays'].currentValue !==
+        changes['imageArrays'].previousValue
+    ) {
+      const images = changes['imageArrays'].currentValue as imageArray[];
+      if (images) {
+        this.indices = images.map((_, index) => index);
+      } else {
+        this.indices = [];
+      }
+    }
+  }
 
   initConfig(): void {
     this.currentImageIndex = 0;
@@ -43,7 +59,21 @@ export class CarouselComponent implements OnInit, OnChanges {
     console.error(this.imageArrays);
   }
 
-  carouselAutoPlay() {
+  pauseAutoPlay(): void {
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval);
+      this.carouselInterval = null;
+    }
+  }
+
+  // 恢復播放
+  resumeAutoPlay() {
+    this.clearcarousel();
+    this.carouselAutoPlay();
+  }
+
+  // 自動播放
+  carouselAutoPlay(): void {
     this.clearcarousel();
     this.carouselInterval = setInterval(() => {
       this.currentImageIndex =
@@ -73,6 +103,7 @@ export class CarouselComponent implements OnInit, OnChanges {
         break;
     }
     this.isVaildImage();
+    this.resumeAutoPlay();
   }
 
   /**
@@ -88,11 +119,18 @@ export class CarouselComponent implements OnInit, OnChanges {
     }
   }
 
+  // 從下方改變視圖
   changeImageBottomBar(imageNumber: number): void {
+    this.pauseAutoPlay();
     this.currentImageIndex = imageNumber;
+    this.resumeAutoPlay();
   }
 
   ngOnDestroy(): void {
     this.clearcarousel();
+  }
+
+  get imageTransform(): string {
+    return `translateX(-${this.currentImageIndex * 100}%)`;
   }
 }
