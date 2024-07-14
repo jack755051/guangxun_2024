@@ -2,12 +2,22 @@
   @include custom-layout-shell;
   > .home-page-container {
     @include custom-layout-content(column, 50%);
-    background-color: rgb(42, 246, 246);
+    // background-color: rgb(42, 246, 246);
     > .block-title {
       @include block-title;
     }
     > .news-shell {
       width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0;
+
+      > mat-accordion {
+        width: 50vw;
+      }
     }
     > .limited-time-offer {
       width: 100%;

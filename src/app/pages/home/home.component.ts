@@ -96,9 +96,19 @@ export class HomeComponent implements OnInit {
     ];
     this.matAccordionData = [
       {
-        panelTitle: '',
-        panelDescription: '',
-        content: '',
+        panelTitle: '最新消息01',
+        panelDescription: '2024/08/11',
+        content: '國際石油價格上漲，導致全球能源市場波動。',
+      },
+      {
+        panelTitle: '最新消息02',
+        panelDescription: '2024/08/05',
+        content: '本地學校因疫情突增決定暫時遠程教學。',
+      },
+      {
+        panelTitle: '最新消息03',
+        panelDescription: '2024/08/01',
+        content: '科技巨頭發布最新智能手機，創新功能引領潮流。',
       },
     ];
 
