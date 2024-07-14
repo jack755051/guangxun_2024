@@ -26,6 +26,24 @@ export enum FormErrorMessages {
   Regex = '格式錯誤',
 }
 
+//新聞種類
+export enum MonitoringCategory {
+  IT_INFRASTRUCTURE = 'IT基礎設施',
+  NETWORK_SECURITY = '網絡安全',
+  PHYSICAL_SECURITY = '物理安全',
+  ENVIRONMENTAL = '環境監控',
+  HEALTH_MONITORING = '健康監控',
+  PERFORMANCE = '性能監控',
+  OPERATIONAL = '運營監控',
+  QUALITY_CONTROL = '質量控制',
+  CYBER_SECURITY = '資訊安全',
+}
+
+export enum NewsCategory {
+  LATEST = '最新',
+  HOT = '熱門',
+}
+
 export enum RegexErrorType {
   regexLoginPagePassword = '',
 }

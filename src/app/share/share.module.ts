@@ -9,6 +9,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { DailogComponent } from './components/dailog/dailog.component';
 import { CardComponent } from './components/card/card.component';
 import { ErrorDailogComponent } from './components/dailog/error-dailog/error-dailog.component';
+import { ExpansionPanelContentComponent } from './components/expansion-panel-content/expansion-panel-content.component';
 // Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
     DailogComponent,
     CardComponent,
     ErrorDailogComponent,
+    ExpansionPanelContentComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { MatCardModule } from '@angular/material/card';
     BreadcrumbComponent,
     DailogComponent,
     CardComponent,
+    ExpansionPanelContentComponent,
   ],
 })
 export class SharedModule {}

@@ -1,4 +1,4 @@
-import { ActionsType } from './common.enum';
+import { ActionsType, MonitoringCategory, NewsCategory } from './common.enum';
 
 // ==== login-page ====
 export interface Imageurl {
@@ -29,8 +29,14 @@ export interface MatCardType {
 }
 
 // expansion-panel 展開面板
-export interface Accordion {
+export interface BaseExpPanel {
   panelTitle: string;
-  panelDescription: string;
   content: string;
+}
+
+export interface HomePageNewsExpPanel extends BaseExpPanel {
+  newsId?: string;
+  newsDate: string;
+  newsCategory?: NewsCategory;
+  monitoringCategory?: MonitoringCategory;
 }

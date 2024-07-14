@@ -7,15 +7,23 @@
     <!-- 最新消息 -->
     <div class="block-title">{{ PageName["latest-news"] }}</div>
     <div class="news-shell">
-      <mat-accordion *ngFor="let item of matAccordionData; let i = index">
-        <mat-expansion-panel>
+      <mat-accordion>
+        <mat-expansion-panel
+          *ngFor="let item of matAccordionData; let i = index"
+        >
           <mat-expansion-panel-header>
             <mat-panel-title>{{ item.panelTitle }}</mat-panel-title>
             <mat-panel-description>{{
-              item.panelDescription
+              item.newsCategory
             }}</mat-panel-description>
           </mat-expansion-panel-header>
-          <p>{{ item.content }}</p>
+          <!-- <p>{{ item.content }}</p> -->
+          <app-expansion-panel-content
+            [newsDate]="item.newsDate"
+            [monitoringCategory]="item.monitoringCategory!"
+            [content]="item.content"
+          >
+          </app-expansion-panel-content>
         </mat-expansion-panel>
       </mat-accordion>
     </div>

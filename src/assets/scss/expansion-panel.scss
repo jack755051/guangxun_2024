@@ -1,0 +1,16 @@
+.expansion-panel-shell {
+  width: 100%;
+  > .expansion-panel-top {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 1.2rem;
+    color: aliceblue;
+
+    background-color: #ff7373;
+    margin-bottom: 0.8rem;
+  }
+}

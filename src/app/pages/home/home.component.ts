@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  Accordion,
+  BaseExpPanel,
+  HomePageNewsExpPanel,
   imageArray,
   MatCardType,
 } from '../../share/types/commom.interface';
-import { ActionsType, PageName } from '../../share/types/common.enum';
+import {
+  ActionsType,
+  MonitoringCategory,
+  NewsCategory,
+  PageName,
+} from '../../share/types/common.enum';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +20,7 @@ import { ActionsType, PageName } from '../../share/types/common.enum';
 export class HomeComponent implements OnInit {
   imagesSrc: imageArray[] = [];
   matCardData: MatCardType[] = [];
-  matAccordionData: Accordion[] = [];
+  matAccordionData: HomePageNewsExpPanel[] = [];
   PageName = PageName;
 
   constructor() {}
@@ -96,18 +102,27 @@ export class HomeComponent implements OnInit {
     ];
     this.matAccordionData = [
       {
+        newsId: '0000001',
+        newsDate: '2024/07/02',
+        newsCategory: NewsCategory.LATEST,
+        monitoringCategory: MonitoringCategory.OPERATIONAL,
         panelTitle: '最新消息01',
-        panelDescription: '2024/08/11',
         content: '國際石油價格上漲，導致全球能源市場波動。',
       },
       {
+        newsId: '0000002',
+        newsDate: '2024/06/30',
+        newsCategory: NewsCategory.HOT,
+        monitoringCategory: MonitoringCategory.OPERATIONAL,
         panelTitle: '最新消息02',
-        panelDescription: '2024/08/05',
         content: '本地學校因疫情突增決定暫時遠程教學。',
       },
       {
+        newsId: '0000003',
+        newsDate: '2024/06/22',
+        newsCategory: NewsCategory.HOT,
+        monitoringCategory: MonitoringCategory.OPERATIONAL,
         panelTitle: '最新消息03',
-        panelDescription: '2024/08/01',
         content: '科技巨頭發布最新智能手機，創新功能引領潮流。',
       },
     ];
