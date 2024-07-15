@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderPageLink } from '../../types/commom.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { HeaderPageLink } from '../../types/commom.interface';
 })
 export class HeaderComponent implements OnInit {
   pageLinkList!: HeaderPageLink[];
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.initPage();
@@ -47,5 +48,10 @@ export class HeaderComponent implements OnInit {
         isHasChild: false,
       },
     ];
+  }
+
+  navigateTo(router: string): void {
+    console.log('/home/' + router);
+    this.router.navigate(['/home/' + router]);
   }
 }

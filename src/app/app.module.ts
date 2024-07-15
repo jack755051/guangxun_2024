@@ -28,6 +28,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './share/share.module';
 import { CarouselComponent } from './utils/components/carousel/carousel.component';
+import { LatestNewsComponent } from './pages/latest-news/latest-news.component';
+import { AboutGuangxunComponent } from './pages/about-guangxun/about-guangxun.component';
+import { TechnicalSupportComponent } from './pages/technical-support/technical-support.component';
+import { FaqComponent } from './pages/faq/faq.component';
+import { ProductCenterComponent } from './pages/product-center/product-center.component';
+import { ManageComponent } from './pages/manage/manage.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,12 @@ import { CarouselComponent } from './utils/components/carousel/carousel.componen
     ErrorComponent,
     LoginComponent,
     CarouselComponent,
+    LatestNewsComponent,
+    AboutGuangxunComponent,
+    TechnicalSupportComponent,
+    FaqComponent,
+    ProductCenterComponent,
+    ManageComponent,
   ],
   imports: [
     BrowserModule,

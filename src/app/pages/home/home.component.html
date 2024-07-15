@@ -1,4 +1,4 @@
-<div class="home-page-shell">
+<div class="home-page-shell" *ngIf="isShowHomeSelf">
   <div class="home-page-container">
     <app-carousel
       [imageArrays]="imagesSrc"
@@ -32,3 +32,5 @@
     <app-card class="limited-time-offer" [matCardData]="matCardData"></app-card>
   </div>
 </div>
+
+<router-outlet></router-outlet>

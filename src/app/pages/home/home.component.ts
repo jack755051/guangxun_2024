@@ -11,6 +11,8 @@ import {
   NewsCategory,
   PageName,
 } from '../../share/types/common.enum';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -23,11 +25,16 @@ export class HomeComponent implements OnInit {
   matAccordionData: HomePageNewsExpPanel[] = [];
   PageName = PageName;
 
-  constructor() {}
+  // 是否顯示自身
+  isShowHomeSelf: boolean = true;
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     // 直接進入系統
     sessionStorage.setItem('token', 'a');
+    // 偵測路由是否於首頁
+    this.showHomeSelf();
     this.matCardData = [
       {
         headerTitle: 'GC-IP50-W288',
@@ -152,4 +159,19 @@ export class HomeComponent implements OnInit {
   // buildCardData(): void {
   //   this.cardSource.map((item) => this.matCardData.push(item));
   // }
+
+  /**
+   * Detect whether the router is on the home page.
+   */
+  showHomeSelf() {
+    this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: NavigationEnd) => {
+        this.isShowHomeSelf = event.urlAfterRedirects === '/home';
+      });
+  }
 }

@@ -7,7 +7,7 @@
   <div class="header-page-navbar">
     <ul class="header-page-navbar-link">
       <li *ngFor="let item of pageLinkList">
-        <button mat-button routerLink="{{ item.pageRouterLink }}">
+        <button mat-button (click)="navigateTo(item.pageRouterLink)">
           {{ item.pageName }}
         </button>
       </li>
