@@ -11,6 +11,9 @@ import {
 } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
+// e-chart
+import * as echarts from 'echarts/core';
+
 // material module
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -34,6 +37,7 @@ import { TechnicalSupportComponent } from './pages/technical-support/technical-s
 import { FaqComponent } from './pages/faq/faq.component';
 import { ProductCenterComponent } from './pages/product-center/product-center.component';
 import { ManageComponent } from './pages/manage/manage.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,10 @@ import { ManageComponent } from './pages/manage/manage.component';
     CoreModule,
     SharedModule,
     ReactiveFormsModule,
+    // echarts
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
     // material module
     MatButtonModule,
     MatFormFieldModule,

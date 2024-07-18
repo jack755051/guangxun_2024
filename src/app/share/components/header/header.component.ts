@@ -50,8 +50,11 @@ export class HeaderComponent implements OnInit {
     ];
   }
 
-  navigateTo(router: string): void {
+  navigateTo(router?: string): void {
     console.log('/home/' + router);
-    this.router.navigate(['/home/' + router]);
+    let completeRouter: string = '';
+    router ? (completeRouter += '/home/' + router) : (completeRouter = '/home');
+
+    this.router.navigate([completeRouter]);
   }
 }
