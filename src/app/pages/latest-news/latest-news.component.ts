@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EchartsService } from '../../share/services/echarts.service';
+import { ChartSize } from '../../share/types/common.enum';
 
 @Component({
   selector: 'app-latest-news',
@@ -7,18 +8,27 @@ import { EchartsService } from '../../share/services/echarts.service';
   styleUrl: './latest-news.component.scss',
 })
 export class LatestNewsComponent implements OnInit {
-  options: any;
-  options2: any;
-  constructor(private echartsService: EchartsService) {}
+  //傳入card with charts的data
+  private _cardWithChartsSize!: ChartSize;
+  cardWithChartsTitle!: string;
+  cardWithChartsExplain!: boolean;
+
+  // 圖表跟文字描述
+  option: any;
+  description!: string;
+
+  constructor(private echartsService: EchartsService) {
+    this.cardWithChartsSize = ChartSize.Middle;
+  }
 
   ngOnInit(): void {
     this.echartConfig();
+    this.cardWithChartsTitle = 'By End User';
   }
 
   // 圖表參數
   echartConfig(): void {
-    // this.options = this.echartsService.getChartOption();
-    this.options2 = this.echartsService.getPieOption([
+    this.option = this.echartsService.getPieOption([
       {
         value: 43,
         name: 'Goverment and Public',
@@ -32,5 +42,17 @@ export class LatestNewsComponent implements OnInit {
         name: 'Residential',
       },
     ]);
+    this.description = '1122';
+  }
+
+  //getter
+  get cardWithChartsSize(): ChartSize {
+    return this._cardWithChartsSize;
+  }
+
+  //setter
+  set cardWithChartsSize(size: ChartSize) {
+    this._cardWithChartsSize = size;
+    this.cardWithChartsExplain = size === ChartSize.Large;
   }
 }

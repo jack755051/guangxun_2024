@@ -14,6 +14,10 @@ import { ExpansionPanelContentComponent } from './components/expansion-panel-con
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { CardTypeWithChartsComponent } from './components/card-type-with-charts/card-type-with-charts.component';
+
+//tool
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
     CardComponent,
     ErrorDailogComponent,
     ExpansionPanelContentComponent,
+    CardTypeWithChartsComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +36,9 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
   ],
 
   providers: [],
@@ -41,6 +49,7 @@ import { MatCardModule } from '@angular/material/card';
     DailogComponent,
     CardComponent,
     ExpansionPanelContentComponent,
+    CardTypeWithChartsComponent,
   ],
 })
 export class SharedModule {}

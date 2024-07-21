@@ -1,0 +1,30 @@
+<div
+  class="tw-min-h-64 tw-bg-card-with-charts-background-1 tw-flex tw-flex-col tw-justify-center tw-border tw-border-[0.4em] tw-rounded-xl tw-my-[1vh] tw-drop-shadow-xl tw-mx-8"
+  [ngStyle]="{ width: actualSize + 'vw' }"
+>
+  <div
+    id="title"
+    class="tw-w-[100%] tw-h-[5vh] tw-leading-[5vh] tw-flex tw-justify-center tw-items-center tw-my-4"
+  >
+    <p
+      class="tw-min-w-[20%] tw-bg-card-with-charts-background-2 tw-flex tw-justify-center tw-flex tw-justify-center tw-rounded-xl tw-text-card-with-charts-text-2 tw-text-[2em] tw-px-6"
+    >
+      {{ title }}
+    </p>
+  </div>
+  <div
+    id="content"
+    class="tw-w-[100%] tw-h-[40vh] tw-flex tw-justify-around tw-flex tw-justify-around"
+    [ngClass]="{
+      'tw-flex-row': !chartStart,
+      'tw-flex-row-reverse': chartStart
+    }"
+  >
+    <div
+      *ngFor="let item of contentId; let i = index"
+      [class]="'tw-grow tw-h-[100%] tw-mx-2 tw-mx-2'"
+    >
+      <div echarts [options]="option" class="echart-container"></div>
+    </div>
+  </div>
+</div>

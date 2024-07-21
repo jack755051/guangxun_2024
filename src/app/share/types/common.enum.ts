@@ -53,3 +53,9 @@ export enum RegexErrorType {
 export enum ActionsType {
   enter = '進入',
 }
+
+export enum ChartSize {
+  Small = 30,
+  Middle = 50,
+  Large = 100,
+}

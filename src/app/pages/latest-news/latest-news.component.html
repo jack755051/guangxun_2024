@@ -1,4 +1,9 @@
-<div class="latest-news-shell">
-  <!-- <div echarts [options]="options" class="echart-container"></div> -->
-  <div echarts [options]="options2" class="echart-container"></div>
+<div class="latest-news-shell tw-w-screen tw-flex tw-justify-center">
+  <app-card-type-with-charts
+    [chartSize]="cardWithChartsSize"
+    [chartHaveExplain]="cardWithChartsExplain"
+    [title]="cardWithChartsTitle"
+    [chartOption]="option"
+    [chartDescription]="description"
+  ></app-card-type-with-charts>
 </div>
