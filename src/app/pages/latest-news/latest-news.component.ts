@@ -11,14 +11,15 @@ export class LatestNewsComponent implements OnInit {
   //傳入card with charts的data
   private _cardWithChartsSize!: ChartSize;
   cardWithChartsTitle!: string;
-  cardWithChartsExplain!: boolean;
+  _cardWithChartsExplain!: boolean;
+  private _description!: string;
 
   // 圖表跟文字描述
   option: any;
-  description!: string;
 
   constructor(private echartsService: EchartsService) {
     this.cardWithChartsSize = ChartSize.Middle;
+    this.description = 'new test';
   }
 
   ngOnInit(): void {
@@ -42,7 +43,6 @@ export class LatestNewsComponent implements OnInit {
         name: 'Residential',
       },
     ]);
-    this.description = '1122';
   }
 
   //getter
@@ -50,9 +50,19 @@ export class LatestNewsComponent implements OnInit {
     return this._cardWithChartsSize;
   }
 
+  get description(): string {
+    return this._description;
+  }
+
   //setter
   set cardWithChartsSize(size: ChartSize) {
     this._cardWithChartsSize = size;
-    this.cardWithChartsExplain = size === ChartSize.Large;
+    this._cardWithChartsExplain = size === ChartSize.Large;
+    this._description =
+      size === ChartSize.Large ? 'Default description for Large size' : '';
+  }
+
+  set description(desc: string) {
+    this._description = desc;
   }
 }

@@ -11,6 +11,7 @@ import {
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 import { pieBasicType } from '../types/common.types';
+import { format } from 'path';
 
 @Injectable({
   providedIn: 'root',
@@ -57,10 +58,23 @@ export class EchartsService {
     const option = {
       tooltip: {
         trigger: 'item',
+        formatter: function (params: any) {
+          // 使用 params.color 来获取当前扇区的颜色
+          return `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:${params.color};"></span>${params.name} : ${params.percent}% <br/> <span style="margin-left:15px;">數值為${params.value}</span>`;
+        },
+        borderColor: '#69AFFF',
+        borderWidth: 5,
+        textStyle: {
+          fontStyle: 'oblique',
+        },
+        extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
       },
       legend: {
-        top: '5%',
-        left: 'center',
+        // top: '5%',
+        // left: 'center',
+        top: 'center', // 垂直中心
+        left: 'left', // 水平方向靠左
+        orient: 'vertical', // 如果需要垂直排列图例
       },
       series: [
         {
@@ -80,7 +94,7 @@ export class EchartsService {
           emphasis: {
             label: {
               show: true,
-              fontSize: 40,
+              fontSize: 25,
               fontWeight: 'bold',
             },
           },
