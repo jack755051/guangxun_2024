@@ -25,7 +25,10 @@ export class CardTypeWithChartsComponent implements OnInit {
   //依據ChartSize判斷是否存在
   isExplainExist!: boolean;
   contentId: string[] = ['chart'];
-  actualSize!: number;
+
+  shellWidth!: number;
+  contentWidth!: number;
+
   option: any;
   isHaveExplain!: boolean;
 
@@ -38,16 +41,18 @@ export class CardTypeWithChartsComponent implements OnInit {
   initConfig(): void {
     this.isHaveExplain = this.chartHaveExplain;
 
-    this.actualSize = this.chartSize * 0.8;
+    this.shellWidth = this.chartSize * 0.8;
 
     // 如果 chartSize 是 Large，則添加 'explain' 到 contentId 陣列
     switch (this.chartSize) {
       case ChartSize.Large:
         this.contentId.push('explain');
         this.option = this.chartOption;
+        this.contentWidth = 50;
         break;
       case ChartSize.Middle:
         this.option = this.chartOption;
+        this.contentWidth = 100;
     }
   }
 }

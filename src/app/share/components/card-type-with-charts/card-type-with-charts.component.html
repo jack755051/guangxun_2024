@@ -1,6 +1,6 @@
 <div
-  class="tw-min-h-64 tw-bg-card-with-charts-background-1 tw-flex tw-flex-col tw-justify-center tw-border tw-border-[0.4em] tw-rounded-xl tw-my-[1vh] tw-drop-shadow-xl tw-mx-8"
-  [ngStyle]="{ width: actualSize + 'vw' }"
+  class="tw-min-h-64 tw-bg-card-with-charts-background-1 tw-flex tw-flex-col tw-justify-center tw-border tw-border-[0.4em] tw-rounded-xl tw-my-[1vh] tw-drop-shadow-xl tw-mx-8 tw-mb-6"
+  [ngStyle]="{ width: shellWidth + 'vw' }"
 >
   <div
     id="title"
@@ -21,10 +21,19 @@
     }"
   >
     <div
-      *ngFor="let item of contentId; let i = index"
-      [class]="'tw-grow tw-h-[100%] tw-mx-2 tw-mx-2'"
+      [class]="
+        'tw-grow tw-h-[100%] tw-mx-2 tw-mx-2 tw-flex tw-flex-row tw-items-center tw-justify-center'
+      "
     >
-      <div echarts [options]="option" class="echart-container"></div>
+      <div
+        echarts
+        [options]="option"
+        class="tw-h-[40vh] tw-grow"
+        [ngStyle]="{ width: contentWidth + '%' }"
+      ></div>
+      <div *ngIf="contentId.includes('explain')" class="tw-grow tw-h-[40vh]">
+        {{ chartDescription }}
+      </div>
     </div>
   </div>
 </div>

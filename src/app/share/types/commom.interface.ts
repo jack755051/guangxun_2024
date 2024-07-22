@@ -1,4 +1,9 @@
-import { ActionsType, MonitoringCategory, NewsCategory } from './common.enum';
+import {
+  ActionsType,
+  ChartSize,
+  MonitoringCategory,
+  NewsCategory,
+} from './common.enum';
 
 // ==== login-page ====
 export interface Imageurl {
@@ -39,4 +44,18 @@ export interface HomePageNewsExpPanel extends BaseExpPanel {
   newsDate: string;
   newsCategory?: NewsCategory;
   monitoringCategory?: MonitoringCategory;
+}
+
+//e-chart
+export interface ChartConfig {
+  size: ChartSize;
+  explain: boolean;
+  description: string;
+  title: string;
+}
+
+export interface ChartDescription {
+  title: string;
+  content: string;
+  source: string;
 }

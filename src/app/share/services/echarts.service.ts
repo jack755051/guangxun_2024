@@ -68,19 +68,20 @@ export class EchartsService {
           fontStyle: 'oblique',
         },
         extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
+        position: 'right',
       },
       legend: {
         // top: '5%',
         // left: 'center',
-        top: 'center', // 垂直中心
-        left: 'left', // 水平方向靠左
-        orient: 'vertical', // 如果需要垂直排列图例
+        top: 'center',
+        left: 'left',
+        orient: 'vertical',
       },
       series: [
         {
           name: 'By End User',
           type: 'pie',
-          radius: ['40%', '70%'],
+          radius: ['40%', '80%'],
           avoidLabelOverlap: false,
           itemStyle: {
             borderRadius: 10,

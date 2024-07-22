@@ -1,9 +1,17 @@
-<div class="latest-news-shell tw-w-screen tw-flex tw-justify-center">
+<div
+  class="latest-news-shell tw-w-[100vw] tw-flex tw-flex-col tw-justify-center tw-items-center"
+>
   <app-card-type-with-charts
-    [chartSize]="cardWithChartsSize"
-    [chartHaveExplain]="cardWithChartsExplain"
-    [title]="cardWithChartsTitle"
+    [chartSize]="chartsConfig['byEndUser'].size"
+    [title]="chartsConfig['byEndUser'].title"
     [chartOption]="option"
-    [chartDescription]="description"
+    [chartDescription]="chartsConfig['byEndUser'].description"
+  ></app-card-type-with-charts>
+
+  <app-card-type-with-charts
+    [chartSize]="chartsConfig['globalCCTVShare'].size"
+    [title]="chartsConfig['globalCCTVShare'].title"
+    [chartOption]="option2"
+    [chartDescription]="chartsConfig['globalCCTVShare'].description"
   ></app-card-type-with-charts>
 </div>

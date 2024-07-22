@@ -18,6 +18,7 @@ import { CardTypeWithChartsComponent } from './components/card-type-with-charts/
 
 //tool
 import { NgxEchartsModule } from 'ngx-echarts';
+import { DescriptionComponent } from './components/card-type-with-charts/description/description.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
     ErrorDailogComponent,
     ExpansionPanelContentComponent,
     CardTypeWithChartsComponent,
+    DescriptionComponent,
   ],
   imports: [
     CommonModule,
